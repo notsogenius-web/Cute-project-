@@ -10,11 +10,16 @@
       --romantic-rose: #ff4d6d;
       --romantic-blush: #ff758f;
       --romantic-lavender: #c77dff;
-      --romantic-glow: rgba(255, 77, 109, 0.45);
-      --glass-bg: rgba(20, 8, 15, 0.82);
+      --romantic-glow: rgba(255, 77, 109, 0.5);
+      --glass-bg: rgba(20, 8, 15, 0.85);
       --glass-border: rgba(255, 182, 193, 0.35);
       --text-main: #fff0f3;
       --text-sub: #ffccd5;
+    }
+
+    body.clear-mode {
+      --glass-bg: rgba(20, 8, 15, 0.35);
+      --glass-border: rgba(255, 182, 193, 0.5);
     }
 
     * {
@@ -52,7 +57,12 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.4) saturate(1.3);
+      filter: brightness(0.65) saturate(1.3);
+      transition: filter 0.4s ease;
+    }
+
+    body.clear-mode #bgVideo {
+      filter: brightness(0.9) saturate(1.4);
     }
 
     .bg-overlay {
@@ -61,9 +71,14 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: radial-gradient(circle at center, rgba(30, 8, 20, 0.25) 0%, rgba(10, 2, 6, 0.94) 100%);
+      background: radial-gradient(circle at center, rgba(30, 8, 20, 0.15) 0%, rgba(10, 2, 6, 0.85) 100%);
       z-index: -1;
       pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    body.clear-mode .bg-overlay {
+      opacity: 0.35;
     }
 
     /* Floating Hearts */
@@ -83,7 +98,7 @@
       100% { transform: translateY(-110vh) scale(1.3) rotate(360deg); opacity: 0; }
     }
 
-    /* Top Navigation */
+    /* Header Navigation */
     header {
       position: sticky;
       top: 12px;
@@ -119,7 +134,7 @@
       background: transparent;
       border: none;
       color: rgba(255, 255, 255, 0.7);
-      padding: 5px 12px;
+      padding: 5px 11px;
       border-radius: 20px;
       font-size: 0.82rem;
       font-weight: 600;
@@ -134,7 +149,7 @@
       box-shadow: 0 4px 14px rgba(255, 77, 109, 0.6);
     }
 
-    /* Main Container */
+    /* Content Cards */
     main {
       position: relative;
       z-index: 10;
@@ -155,24 +170,24 @@
       -webkit-backdrop-filter: blur(25px);
       border: 1px solid var(--glass-border);
       border-radius: 28px;
-      padding: 24px 18px;
+      padding: 26px 18px;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 30px var(--romantic-glow);
       text-align: center;
     }
 
     .page.active {
       display: block;
-      animation: pageEntrance 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: pageEntrance 0.4s ease forwards;
     }
 
     @keyframes pageEntrance {
-      from { opacity: 0; transform: translateY(18px) scale(0.97); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .title {
       font-family: 'Great Vibes', cursive;
-      font-size: 2.4rem;
+      font-size: 2.5rem;
       color: #fff0f3;
       margin-bottom: 4px;
       text-shadow: 0 0 16px rgba(255, 77, 109, 0.8);
@@ -180,7 +195,7 @@
     }
 
     .quote {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--text-sub);
       font-style: italic;
       line-height: 1.45;
@@ -188,7 +203,18 @@
       padding: 0 6px;
     }
 
-    /* Responsive GIF Frame */
+    .incognito-tip {
+      background: rgba(255, 77, 109, 0.15);
+      border: 1px dashed rgba(255, 182, 193, 0.6);
+      padding: 12px 14px;
+      border-radius: 16px;
+      font-size: 0.85rem;
+      color: #ffccd5;
+      margin: 18px 0;
+      line-height: 1.4;
+    }
+
+    /* Media Frames */
     .media-card {
       border-radius: 20px;
       overflow: hidden;
@@ -205,13 +231,36 @@
     .media-card img {
       width: 100%;
       height: auto;
-      max-height: 48vh;
+      max-height: 46vh;
       object-fit: contain;
       display: block;
       border-radius: 18px;
     }
 
-    /* Buttons */
+    /* Big Start Button */
+    .big-play-btn {
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--romantic-rose), var(--romantic-lavender));
+      border: 3px solid rgba(255, 255, 255, 0.85);
+      color: #ffffff;
+      font-size: 2.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px auto;
+      cursor: pointer;
+      box-shadow: 0 0 30px rgba(255, 77, 109, 0.8);
+      user-select: none;
+      touch-action: manipulation;
+    }
+
+    .big-play-btn:active {
+      transform: scale(0.92);
+    }
+
+    /* Action Buttons */
     .btn-group {
       display: flex;
       justify-content: center;
@@ -220,7 +269,6 @@
     }
 
     .action-btn {
-      position: relative;
       background: linear-gradient(135deg, var(--romantic-rose), var(--romantic-lavender));
       border: none;
       outline: none;
@@ -234,7 +282,7 @@
       align-items: center;
       gap: 8px;
       box-shadow: 0 6px 20px rgba(255, 77, 109, 0.5);
-      transition: transform 0.2s ease;
+      user-select: none;
       touch-action: manipulation;
     }
 
@@ -248,21 +296,29 @@
       transform: scale(0.94);
     }
 
-    /* Floating Status Control */
-    .sound-toggle {
+    /* Bottom Controller Bar */
+    .bottom-bar {
       position: fixed;
-      bottom: 15px;
-      right: 15px;
+      bottom: 12px;
+      width: 92%;
+      max-width: 480px;
+      display: flex;
+      justify-content: space-between;
       z-index: 100;
+      pointer-events: none;
+    }
+
+    .float-pill {
+      pointer-events: auto;
       background: var(--glass-bg);
       backdrop-filter: blur(16px);
       border: 1px solid var(--glass-border);
-      padding: 7px 15px;
+      padding: 7px 14px;
       border-radius: 30px;
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       cursor: pointer;
       box-shadow: 0 6px 20px rgba(0,0,0,0.5);
     }
@@ -277,8 +333,8 @@
     footer {
       position: relative;
       z-index: 10;
-      margin-bottom: 15px;
-      font-size: 0.78rem;
+      margin-bottom: 45px;
+      font-size: 0.76rem;
       color: rgba(255, 204, 213, 0.6);
     }
   </style>
@@ -301,17 +357,33 @@
   <header>
     <div class="brand">My World ❤️</div>
     <nav>
-      <button class="nav-btn active" onclick="switchPage(1)">1</button>
-      <button class="nav-btn" onclick="switchPage(2)">2</button>
-      <button class="nav-btn" onclick="switchPage(3)">3</button>
-      <button class="nav-btn" onclick="switchPage(4)">4</button>
-      <button class="nav-btn" onclick="switchPage(5)">5</button>
+      <button class="nav-btn active" id="btn-0" onclick="switchPage(0)">Start</button>
+      <button class="nav-btn" id="btn-1" onclick="switchPage(1)">1</button>
+      <button class="nav-btn" id="btn-2" onclick="switchPage(2)">2</button>
+      <button class="nav-btn" id="btn-3" onclick="switchPage(3)">3</button>
+      <button class="nav-btn" id="btn-4" onclick="switchPage(4)">4</button>
+      <button class="nav-btn" id="btn-5" onclick="switchPage(5)">5</button>
     </nav>
   </header>
 
   <main>
 
-    <section id="page-1" class="page active">
+    <section id="page-0" class="page active">
+      <h1 class="title">A Surprise For You</h1>
+      <p class="quote">“Put on your headphones and tap below to start the journey.”</p>
+      
+      <div class="incognito-tip">
+        💡 <strong>Pro Tip:</strong> Please turn off <strong>Incognito Mode</strong> and turn up your volume for the full video & audio experience! ✨
+      </div>
+
+      <div class="big-play-btn" onclick="startExperience()">
+        ▶
+      </div>
+
+      <p style="font-size: 0.8rem; color: #ffccd5; margin-top: 8px;">Tap the play button to begin ❤️</p>
+    </section>
+
+    <section id="page-1" class="page">
       <h1 class="title">My Favorite Person</h1>
       <p class="quote">“Out of all the stars in the universe, my eyes will always look for you.”</p>
       
@@ -378,15 +450,20 @@
 
       <div class="btn-group">
         <button class="action-btn secondary" onclick="switchPage(4)">Back</button>
-        <button class="action-btn" onclick="switchPage(1)">Replay ↺</button>
+        <button class="action-btn" onclick="switchPage(0)">Replay ↺</button>
       </div>
     </section>
 
   </main>
 
-  <div class="sound-toggle" onclick="toggleAudio()">
-    <div class="sound-dot" id="soundDot"></div>
-    <span id="soundLabel">Audio: Tap to Play</span>
+  <div class="bottom-bar">
+    <div class="float-pill" onclick="toggleClearMode()">
+      <span id="viewModeIcon">👁️</span> <span id="viewModeLabel">Clear Video: OFF</span>
+    </div>
+    <div class="float-pill" onclick="toggleAudio()">
+      <div class="sound-dot" id="soundDot"></div>
+      <span id="soundLabel">Audio: OFF</span>
+    </div>
   </div>
 
   <footer>Made with endless love 💕 • 2026</footer>
@@ -395,84 +472,95 @@
     const video = document.getElementById('bgVideo');
     const soundLabel = document.getElementById('soundLabel');
     const soundDot = document.getElementById('soundDot');
+    const viewModeLabel = document.getElementById('viewModeLabel');
     let hasStarted = false;
 
-    // Bulletproof video audio trigger
-    function playMedia() {
+    // Instant Start Function
+    function startExperience() {
+      switchPage(1);
+      triggerSafeAudioVideoPlay();
+    }
+
+    // Direct, Non-blocking DOM page switch
+    function switchPage(pageNumber) {
+      // 1. Immediately toggle active classes without waiting for anything
+      for (let i = 0; i <= 5; i++) {
+        const p = document.getElementById('page-' + i);
+        const b = document.getElementById('btn-' + i);
+        if (p) p.classList.remove('active');
+        if (b) b.classList.remove('active');
+      }
+
+      const targetPage = document.getElementById('page-' + pageNumber);
+      const targetBtn = document.getElementById('btn-' + pageNumber);
+      
+      if (targetPage) targetPage.classList.add('active');
+      if (targetBtn) targetBtn.classList.add('active');
+
+      // 2. Play media in background safely if not started yet
+      if (!hasStarted && pageNumber > 0) {
+        triggerSafeAudioVideoPlay();
+      }
+    }
+
+    // Safe Media Handler that will never freeze or crash page navigation
+    function triggerSafeAudioVideoPlay() {
       if (!video) return;
       video.muted = false;
       video.volume = 1.0;
 
-      const p = video.play();
-      if (p !== undefined) {
-        p.then(() => {
-          hasStarted = true;
-          soundLabel.textContent = "Audio: Playing 🎵";
-          soundDot.style.background = "#ff4d6d";
-          soundDot.style.boxShadow = "0 0 10px #ff4d6d";
-        }).catch(() => {
-          // If browser rejects unmuted autoplay, play muted first then un-mute
-          video.muted = true;
-          video.play().then(() => {
-            video.muted = false;
-            soundLabel.textContent = "Audio: Playing 🎵";
+      try {
+        const p = video.play();
+        if (p !== undefined) {
+          p.then(() => {
+            hasStarted = true;
+            soundLabel.textContent = "Audio: ON 🎵";
             soundDot.style.background = "#ff4d6d";
             soundDot.style.boxShadow = "0 0 10px #ff4d6d";
-            hasStarted = true;
-          }).catch(e => console.log(e));
-        });
+          }).catch(err => {
+            console.log("Audio block bypass:", err);
+            video.muted = true;
+            video.play().then(() => {
+              video.muted = false;
+              soundLabel.textContent = "Audio: ON 🎵";
+              soundDot.style.background = "#ff4d6d";
+              soundDot.style.boxShadow = "0 0 10px #ff4d6d";
+              hasStarted = true;
+            }).catch(e => console.log("Final bypass error:", e));
+          });
+        }
+      } catch (err) {
+        console.log("Media play exception:", err);
       }
     }
 
-    // Direct, Unbreakable Page Switch Function
-    function switchPage(pageNumber) {
-      // Always attempt to start audio on page navigation
-      if (!hasStarted) {
-        playMedia();
+    function toggleClearMode() {
+      document.body.classList.toggle('clear-mode');
+      if (document.body.classList.contains('clear-mode')) {
+        viewModeLabel.textContent = "Clear Video: ON";
+      } else {
+        viewModeLabel.textContent = "Clear Video: OFF";
       }
-
-      // Hide all pages
-      for (let i = 1; i <= 5; i++) {
-        const p = document.getElementById('page-' + i);
-        if (p) p.classList.remove('active');
-      }
-
-      // Show selected page
-      const target = document.getElementById('page-' + pageNumber);
-      if (target) {
-        target.classList.add('active');
-      }
-
-      // Update header buttons
-      const navBtns = document.querySelectorAll('.nav-btn');
-      navBtns.forEach((btn, index) => {
-        if (index + 1 === pageNumber) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
-      });
     }
 
     function toggleAudio() {
       if (!video) return;
       if (video.paused) {
-        playMedia();
+        triggerSafeAudioVideoPlay();
         return;
       }
 
       video.muted = !video.muted;
       if (video.muted) {
-        soundLabel.textContent = "Audio: Muted 🔇";
+        soundLabel.textContent = "Audio: MUTED 🔇";
         soundDot.style.background = "#888";
         soundDot.style.boxShadow = "none";
       } else {
-        soundLabel.textContent = "Audio: Playing 🎵";
+        soundLabel.textContent = "Audio: ON 🎵";
         soundDot.style.background = "#ff4d6d";
         soundDot.style.boxShadow = "0 0 10px #ff4d6d";
       }
     }
   </script>
 </body>
-  </html>
-        
+</html>

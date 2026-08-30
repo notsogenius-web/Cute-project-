@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>For You, Always ❤️</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -10,7 +10,7 @@
       --romantic-rose: #ff4d6d;
       --romantic-blush: #ff758f;
       --romantic-lavender: #c77dff;
-      --glass-bg: rgba(35, 15, 25, 0.72);
+      --glass-bg: rgba(25, 10, 18, 0.78);
       --glass-border: rgba(255, 182, 193, 0.35);
       --text-main: #fff0f3;
       --text-sub: #ffccd5;
@@ -24,7 +24,7 @@
     }
 
     body {
-      background-color: #12070e;
+      background-color: #0d0408;
       color: var(--text-main);
       min-height: 100vh;
       overflow-x: hidden;
@@ -41,8 +41,8 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       overflow: hidden;
       z-index: -2;
     }
@@ -51,16 +51,16 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.48) saturate(1.3);
+      filter: brightness(0.42) saturate(1.3);
     }
 
     .bg-overlay {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at center, rgba(30, 10, 20, 0.35) 0%, rgba(15, 5, 10, 0.9) 100%);
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, rgba(30, 8, 20, 0.3) 0%, rgba(10, 2, 6, 0.92) 100%);
       z-index: -1;
       pointer-events: none;
     }
@@ -68,69 +68,58 @@
     /* Floating Hearts Animation */
     .heart {
       position: fixed;
-      bottom: -20px;
-      color: rgba(255, 105, 145, 0.6);
+      bottom: -30px;
       font-size: 20px;
       pointer-events: none;
       z-index: 0;
-      animation: floatUp 7s linear infinite;
+      animation: floatUp 8s linear infinite;
     }
 
     @keyframes floatUp {
-      0% {
-        transform: translateY(0) scale(0.8) rotate(0deg);
-        opacity: 0;
-      }
-      20% {
-        opacity: 0.8;
-      }
-      80% {
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-110vh) scale(1.3) rotate(360deg);
-        opacity: 0;
-      }
+      0% { transform: translateY(0) scale(0.8) rotate(0deg); opacity: 0; }
+      20% { opacity: 0.8; }
+      80% { opacity: 0.8; }
+      100% { transform: translateY(-110vh) scale(1.3) rotate(360deg); opacity: 0; }
     }
 
     /* Top Navigation */
     header {
       position: sticky;
-      top: 15px;
+      top: 12px;
       z-index: 100;
       width: 92%;
-      max-width: 650px;
+      max-width: 550px;
       background: var(--glass-bg);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--glass-border);
       border-radius: 50px;
-      padding: 8px 18px;
+      padding: 8px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 10px 30px rgba(255, 77, 109, 0.2);
+      box-shadow: 0 10px 30px rgba(255, 77, 109, 0.25);
     }
 
     .brand {
       font-family: 'Great Vibes', cursive;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       color: #ffccd5;
       letter-spacing: 1px;
     }
 
     nav {
       display: flex;
-      gap: 6px;
+      gap: 5px;
     }
 
     .nav-btn {
       background: transparent;
       border: none;
-      color: rgba(255, 255, 255, 0.7);
-      padding: 6px 12px;
+      color: rgba(255, 255, 255, 0.75);
+      padding: 5px 11px;
       border-radius: 20px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -147,9 +136,9 @@
       position: relative;
       z-index: 10;
       width: 92%;
-      max-width: 520px;
-      margin: 25px auto;
-      min-height: 65vh;
+      max-width: 480px;
+      margin: 15px auto;
+      min-height: 70vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -162,65 +151,61 @@
       backdrop-filter: blur(25px);
       -webkit-backdrop-filter: blur(25px);
       border: 1px solid var(--glass-border);
-      border-radius: 28px;
-      padding: 30px 22px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 25px rgba(255, 77, 109, 0.2);
+      border-radius: 26px;
+      padding: 24px 18px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 77, 109, 0.2);
       text-align: center;
     }
 
     .page.active {
       display: block;
-      animation: romanticEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: romanticEntrance 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     @keyframes romanticEntrance {
-      from {
-        opacity: 0;
-        transform: translateY(25px) scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+      from { opacity: 0; transform: translateY(20px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .title {
       font-family: 'Great Vibes', cursive;
-      font-size: 2.4rem;
+      font-size: 2.3rem;
       color: #fff0f3;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
       text-shadow: 0 0 12px rgba(255, 77, 109, 0.6);
+      line-height: 1.2;
     }
 
     .quote {
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       color: var(--text-sub);
       font-style: italic;
-      line-height: 1.5;
-      margin-bottom: 20px;
-      padding: 0 10px;
+      line-height: 1.45;
+      margin-bottom: 16px;
+      padding: 0 6px;
     }
 
-    /* Media Frame for GIFs */
+    /* Responsive GIF Container - Perfectly fits any aspect ratio */
     .media-card {
-      border-radius: 20px;
+      border-radius: 18px;
       overflow: hidden;
       border: 1px solid var(--glass-border);
-      margin: 0 auto 22px;
-      max-width: 420px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s ease;
-    }
-
-    .media-card:hover {
-      transform: scale(1.02);
+      margin: 0 auto 18px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
     }
 
     .media-card img {
       width: 100%;
-      height: 250px;
+      height: auto;
+      max-height: 48vh;
+      object-fit: contain;
       display: block;
-      object-fit: cover;
+      border-radius: 16px;
     }
 
     /* Buttons */
@@ -228,6 +213,7 @@
       display: flex;
       justify-content: center;
       gap: 12px;
+      margin-top: 5px;
     }
 
     .action-btn {
@@ -235,16 +221,16 @@
       border: none;
       outline: none;
       color: #ffffff;
-      padding: 12px 26px;
+      padding: 12px 24px;
       font-size: 0.92rem;
       font-weight: 600;
       border-radius: 30px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      box-shadow: 0 6px 20px rgba(255, 77, 109, 0.45);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      gap: 6px;
+      box-shadow: 0 6px 18px rgba(255, 77, 109, 0.45);
+      transition: transform 0.2s ease;
     }
 
     .action-btn.secondary {
@@ -257,21 +243,21 @@
       transform: scale(0.95);
     }
 
-    /* Audio Toggle Control */
+    /* Floating Status Pill */
     .sound-toggle {
       position: fixed;
-      bottom: 18px;
-      right: 18px;
+      bottom: 15px;
+      right: 15px;
       z-index: 100;
       background: var(--glass-bg);
       backdrop-filter: blur(16px);
       border: 1px solid var(--glass-border);
-      padding: 8px 16px;
+      padding: 7px 15px;
       border-radius: 30px;
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       cursor: pointer;
       box-shadow: 0 6px 20px rgba(0,0,0,0.5);
     }
@@ -280,8 +266,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--romantic-rose);
-      box-shadow: 0 0 10px var(--romantic-rose);
+      background: #888;
     }
 
     footer {
@@ -291,29 +276,22 @@
       font-size: 0.78rem;
       color: rgba(255, 204, 213, 0.6);
     }
-
-    @media (max-width: 600px) {
-      header { border-radius: 20px; }
-      .nav-btn { padding: 5px 10px; font-size: 0.75rem; }
-      .media-card img { height: 220px; }
-      .title { font-size: 2rem; }
-    }
   </style>
 </head>
 <body>
 
   <div class="bg-video-container">
-    <video id="bgVideo" loop playsinline preload="auto">
+    <video id="bgVideo" loop playsinline webkit-playsinline preload="auto">
       <source src="video.mp4" type="video/mp4">
     </video>
   </div>
   <div class="bg-overlay"></div>
 
-  <div class="heart" style="left: 10%; animation-delay: 0s; font-size: 24px;">💖</div>
-  <div class="heart" style="left: 30%; animation-delay: 2.5s; font-size: 18px;">🌸</div>
-  <div class="heart" style="left: 55%; animation-delay: 1.2s; font-size: 22px;">✨</div>
-  <div class="heart" style="left: 75%; animation-delay: 4s; font-size: 16px;">💕</div>
-  <div class="heart" style="left: 90%; animation-delay: 3s; font-size: 26px;">❤️</div>
+  <div class="heart" style="left: 10%; animation-delay: 0s;">💖</div>
+  <div class="heart" style="left: 30%; animation-delay: 2.5s;">🌸</div>
+  <div class="heart" style="left: 55%; animation-delay: 1.2s;">✨</div>
+  <div class="heart" style="left: 75%; animation-delay: 4s;">💕</div>
+  <div class="heart" style="left: 90%; animation-delay: 3s;">❤️</div>
 
   <header>
     <div class="brand">My World ❤️</div>
@@ -337,15 +315,15 @@
       </div>
 
       <div class="btn-group">
-        <button class="action-btn" onclick="startExperienceAndNext()">
-          <span>Tap to Start</span> 💖
+        <button class="action-btn" id="startBtn" onclick="initAndStart()">
+          <span>Tap to Start Music & Video</span> 💖
         </button>
       </div>
     </section>
 
     <section id="page-2" class="page">
       <h1 class="title">Sweetest Moments</h1>
-      <p class="quote">“Every second spent talking with you feels like pure magic.”</p>
+      <p class="quote">“Every second spent with you feels like pure magic.”</p>
       
       <div class="media-card">
         <img src="gif2.gif" alt="GIF 2">
@@ -359,7 +337,7 @@
 
     <section id="page-3" class="page">
       <h1 class="title">You & Me</h1>
-      <p class="quote">“You make the chaotic world feel so peaceful and lovely.”</p>
+      <p class="quote">“You make the whole chaotic world feel peaceful and lovely.”</p>
       
       <div class="media-card">
         <img src="gif3.gif" alt="GIF 3">
@@ -373,7 +351,7 @@
 
     <section id="page-4" class="page">
       <h1 class="title">Pure Happiness</h1>
-      <p class="quote">“Your smile is literally the most beautiful thing in this whole world.”</p>
+      <p class="quote">“Your smile is literally the most beautiful thing in my world.”</p>
       
       <div class="media-card">
         <img src="gif4.gif" alt="GIF 4">
@@ -403,75 +381,68 @@
 
   <div class="sound-toggle" onclick="toggleAudio()">
     <div class="sound-dot" id="soundDot"></div>
-    <span id="soundLabel">Sound: ON</span>
+    <span id="soundLabel">Audio: Tap to Start</span>
   </div>
 
-  <footer>Made with endless love 💕 • 2026</footer>
+  <footer>Made with love 💕 • 2026</footer>
 
   <script>
     const video = document.getElementById('bgVideo');
     const soundLabel = document.getElementById('soundLabel');
     const soundDot = document.getElementById('soundDot');
-    let hasStarted = false;
+    const startBtn = document.getElementById('startBtn');
 
-    // Start video & audio immediately on user tap
-    function startExperienceAndNext() {
+    // Robust Mobile Touch Activation
+    function initAndStart() {
+      // 1. Force audio un-mute and full volume on explicit touch
       video.muted = false;
       video.volume = 1.0;
-      
+
+      // 2. Play video immediately inside this user event
       const playPromise = video.play();
+
       if (playPromise !== undefined) {
         playPromise.then(() => {
-          hasStarted = true;
-          updateSoundStatus(true);
+          soundLabel.textContent = "Audio: Playing 🎵";
+          soundDot.style.background = "#ff4d6d";
+          soundDot.style.boxShadow = "0 0 10px #ff4d6d";
+          
+          // Switch to page 2 smoothly after playback starts
+          setTimeout(() => {
+            switchPage(2);
+          }, 350);
         }).catch(err => {
-          console.log("Audio autoplay fallback:", err);
+          console.log("Direct unmuted playback blocked. Retrying with mute fix:", err);
+          // Fallback: start muted then immediately un-mute
           video.muted = true;
-          video.play();
-          updateSoundStatus(false);
+          video.play().then(() => {
+            video.muted = false;
+            soundLabel.textContent = "Audio: Playing 🎵";
+            soundDot.style.background = "#ff4d6d";
+            setTimeout(() => switchPage(2), 350);
+          });
         });
       }
-
-      switchPage(2);
     }
 
-    // Toggle Audio on/off
     function toggleAudio() {
       if (video.paused) {
         video.play();
       }
 
       video.muted = !video.muted;
-      updateSoundStatus(!video.muted);
-    }
-
-    function updateSoundStatus(isPlaying) {
-      if (isPlaying) {
-        soundLabel.textContent = "Sound: ON";
+      if (video.muted) {
+        soundLabel.textContent = "Audio: Muted 🔇";
+        soundDot.style.background = "#888";
+        soundDot.style.boxShadow = "none";
+      } else {
+        soundLabel.textContent = "Audio: Playing 🎵";
         soundDot.style.background = "#ff4d6d";
         soundDot.style.boxShadow = "0 0 10px #ff4d6d";
-      } else {
-        soundLabel.textContent = "Sound: MUTED";
-        soundDot.style.background = "#666";
-        soundDot.style.boxShadow = "none";
       }
     }
 
-    // Page switcher
     function switchPage(pageNumber) {
-      if (!hasStarted) {
-        video.muted = false;
-        video.volume = 1.0;
-        video.play().then(() => {
-          hasStarted = true;
-          updateSoundStatus(true);
-        }).catch(() => {
-          video.muted = true;
-          video.play();
-          updateSoundStatus(false);
-        });
-      }
-
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       const targetPage = document.getElementById(`page-${pageNumber}`);
       if (targetPage) targetPage.classList.add('active');
@@ -487,4 +458,5 @@
     }
   </script>
 </body>
-</html>
+        </html>
+        

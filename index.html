@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aesthetic Moments ✨</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --glass-bg: rgba(18, 18, 28, 0.65);
+      --glass-border: rgba(255, 255, 255, 0.18);
+      --accent-pink: #ff416c;
+      --accent-purple: #8a2be2;
+      --accent-cyan: #00f2fe;
+      --accent-gold: #fbc2eb;
+      --text-main: #ffffff;
+      --text-sub: rgba(255, 255, 255, 0.82);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: #0b0c10;
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Ambient Fullscreen Background Video */
+    .bg-video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -2;
+    }
+
+    #bgVideo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.45) saturate(1.2);
+    }
+
+    .bg-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, transparent 30%, rgba(10, 10, 18, 0.85) 100%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Top Navigation */
+    header {
+      position: sticky;
+      top: 15px;
+      z-index: 100;
+      width: 92%;
+      max-width: 850px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 50px;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .brand {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      background: linear-gradient(45deg, #ff9a9e, #fecfef, #a1c4fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      white-space: nowrap;
+    }
+
+    .nav-btn:hover {
+      color: #fff;
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(255, 65, 108, 0.45);
+    }
+
+    /* Content Cards */
+    main {
+      position: relative;
+      z-index: 10;
+      width: 92%;
+      max-width: 680px;
+      margin: 25px auto;
+      min-height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page {
+      display: none;
+      width: 100%;
+      background: var(--glass-bg);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      padding: 35px 25px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+      text-align: center;
+    }
+
+    .page.active {
+      display: block;
+      animation: smoothEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes smoothEntrance {
+      from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #ffffff 30%, #fbc2eb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .quote {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 22px;
+      padding: 0 10px;
+    }
+
+    /* Media Display Frame */
+    .media-card {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      margin: 0 auto 20px;
+      max-width: 480px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      transition: transform 0.4s ease;
+    }
+
+    .media-card:hover {
+      transform: scale(1.02);
+    }
+
+    .media-card img {
+      width: 100%;
+      height: auto;
+      max-height: 380px;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Dual Grid for Page 4 */
+    .grid-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      max-width: 520px;
+      margin: 0 auto 20px;
+    }
+
+    .grid-duo img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--glass-border);
+    }
+
+    /* Start Button */
+    .start-btn {
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+      border: none;
+      outline: none;
+      color: #ffffff;
+      padding: 14px 34px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(255, 65, 108, 0.5);
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .start-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Footer / Floating Music Control */
+    .audio-pill {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      z-index: 100;
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      padding: 8px 16px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .mini-play-btn {
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+      border: none;
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 600px) {
+      header { flex-direction: column; gap: 8px; border-radius: 20px; }
+      .grid-duo { grid-template-columns: 1fr; }
+      .grid-duo img { height: 160px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-video-container">
+    <video id="bgVideo" loop muted playsinline>
+      <source src="video.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="bg-overlay"></div>
+
+  <header>
+    <div class="brand">ETHEREAL ✨</div>
+    <nav>
+      <button class="nav-btn active" onclick="switchPage('page-1', this)">Intro</button>
+      <button class="nav-btn" onclick="switchPage('page-2', this)">Whispers</button>
+      <button class="nav-btn" onclick="switchPage('page-3', this)">Echoes</button>
+      <button class="nav-btn" onclick="switchPage('page-4', this)">Moments</button>
+      <button class="nav-btn" onclick="switchPage('page-5', this)">Infinity</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="page-1" class="page active">
+      <h1 class="title">Lost in the Lights</h1>
+      <p class="quote">“Step into the realm where melody meets motion.”</p>
+      
+      <div class="media-card">
+        <img src="gif1.gif" alt="Aesthetic GIF 1">
+      </div>
+
+      <button class="start-btn" id="startExperienceBtn" onclick="startExperience()">
+        <span>Begin Experience</span> ✨
+      </button>
+    </section>
+
+    <section id="page-2" class="page">
+      <h1 class="title">Celestial Whispers</h1>
+      <p class="quote">“In a sea of noise, find the rhythm that keeps your soul alive.”</p>
+      
+      <div class="media-card">
+        <img src="gif2.gif" alt="Aesthetic GIF 2">
+      </div>
+    </section>
+
+    <section id="page-3" class="page">
+      <h1 class="title">Neon Dreamscape</h1>
+      <p class="quote">“Stars can't shine without darkness; keep glowing relentlessly.”</p>
+      
+      <div class="media-card">
+        <img src="gif3.gif" alt="Aesthetic GIF 3">
+      </div>
+    </section>
+
+    <section id="page-4" class="page">
+      <h1 class="title">Parallel Realities</h1>
+      <p class="quote">“Two minds drifting across the same endless aesthetic horizon.”</p>
+      
+      <div class="grid-duo">
+        <img src="gif4.gif" alt="Aesthetic GIF 4">
+        <img src="gif5.gif" alt="Aesthetic GIF 5">
+      </div>
+    </section>
+
+    <section id="page-5" class="page">
+      <h1 class="title">Eternal Echo</h1>
+      <p class="quote">“Every ending is just another poetic beginning waiting to unfold.”</p>
+      
+      <div class="media-card">
+        <img src="gif1.gif" alt="Finale GIF">
+      </div>
+    </section>
+
+  </main>
+
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mp3">
+  </audio>
+
+  <div class="audio-pill">
+    <button class="mini-play-btn" id="musicToggle" onclick="toggleMusic()">▶</button>
+    <span id="musicStatus">Audio</span>
+  </div>
+
+  <script>
+    const audio = document.getElementById('bgMusic');
+    const video = document.getElementById('bgVideo');
+    const toggleBtn = document.getElementById('musicToggle');
+    const musicStatus = document.getElementById('musicStatus');
+    const startBtn = document.getElementById('startExperienceBtn');
+
+    // Start video & audio together on first button click
+    function startExperience() {
+      // 1. Play Video
+      video.play().catch(e => console.log("Video error:", e));
+
+      // 2. Play Audio
+      audio.play().then(() => {
+        toggleBtn.textContent = '❚❚';
+        musicStatus.textContent = 'Playing';
+        startBtn.innerHTML = "<span>Enjoying The Vibe</span> 🌸";
+      }).catch(e => console.log("Audio error:", e));
+    }
+
+    // Floating Audio Controller
+    function toggleMusic() {
+      if (audio.paused) {
+        audio.play().then(() => {
+          toggleBtn.textContent = '❚❚';
+          musicStatus.textContent = 'Playing';
+        }).catch(err => console.log(err));
+      } else {
+        audio.pause();
+        toggleBtn.textContent = '▶';
+        musicStatus.textContent = 'Paused';
+      }
+    }
+
+    // Navigation Switcher
+    function switchPage(pageId, btn) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById(pageId);
+      if (target) target.classList.add('active');
+
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+    }
+  </script>
+</body>
+  </html>
+  

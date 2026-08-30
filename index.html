@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aesthetic Moments ✨</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Aesthetic Experience ✨</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --glass-bg: rgba(18, 18, 28, 0.65);
-      --glass-border: rgba(255, 255, 255, 0.18);
+      --glass-bg: rgba(15, 15, 26, 0.72);
+      --glass-border: rgba(255, 255, 255, 0.16);
       --accent-pink: #ff416c;
       --accent-purple: #8a2be2;
       --accent-cyan: #00f2fe;
-      --accent-gold: #fbc2eb;
       --text-main: #ffffff;
       --text-sub: rgba(255, 255, 255, 0.82);
     }
@@ -25,7 +24,7 @@
     }
 
     body {
-      background-color: #0b0c10;
+      background-color: #07070c;
       color: var(--text-main);
       min-height: 100vh;
       overflow-x: hidden;
@@ -51,7 +50,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.45) saturate(1.2);
+      filter: brightness(0.42) saturate(1.25);
     }
 
     .bg-overlay {
@@ -60,7 +59,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at center, transparent 30%, rgba(10, 10, 18, 0.85) 100%);
+      background: radial-gradient(circle at center, rgba(10, 10, 20, 0.4) 0%, rgba(5, 5, 12, 0.88) 100%);
       z-index: -1;
       pointer-events: none;
     }
@@ -71,64 +70,59 @@
       top: 15px;
       z-index: 100;
       width: 92%;
-      max-width: 850px;
+      max-width: 750px;
       background: var(--glass-bg);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--glass-border);
       border-radius: 50px;
-      padding: 10px 18px;
+      padding: 8px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     }
 
     .brand {
       font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: 1.1rem;
+      font-weight: 800;
+      font-size: 1rem;
       background: linear-gradient(45deg, #ff9a9e, #fecfef, #a1c4fd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
+      padding-left: 8px;
     }
 
     nav {
       display: flex;
-      gap: 6px;
-      overflow-x: auto;
+      gap: 5px;
     }
 
     .nav-btn {
       background: transparent;
       border: none;
       color: rgba(255, 255, 255, 0.7);
-      padding: 6px 14px;
+      padding: 6px 12px;
       border-radius: 20px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      white-space: nowrap;
-    }
-
-    .nav-btn:hover {
-      color: #fff;
+      transition: all 0.3s ease;
     }
 
     .nav-btn.active {
       background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
       color: #fff;
-      box-shadow: 0 4px 15px rgba(255, 65, 108, 0.45);
+      box-shadow: 0 4px 14px rgba(255, 65, 108, 0.45);
     }
 
-    /* Content Cards */
+    /* Cards & Content */
     main {
       position: relative;
       z-index: 10;
       width: 92%;
-      max-width: 680px;
+      max-width: 580px;
       margin: 25px auto;
       min-height: 65vh;
       display: flex;
@@ -143,18 +137,18 @@
       backdrop-filter: blur(25px);
       -webkit-backdrop-filter: blur(25px);
       border: 1px solid var(--glass-border);
-      border-radius: 28px;
-      padding: 35px 25px;
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+      border-radius: 26px;
+      padding: 30px 22px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
       text-align: center;
     }
 
     .page.active {
       display: block;
-      animation: smoothEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    @keyframes smoothEntrance {
+    @keyframes pageIn {
       from {
         opacity: 0;
         transform: translateY(25px) scale(0.96);
@@ -167,33 +161,33 @@
 
     .title {
       font-family: 'Cinzel', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
+      font-size: 1.65rem;
+      font-weight: 800;
       letter-spacing: 1.5px;
       margin-bottom: 8px;
-      background: linear-gradient(135deg, #ffffff 30%, #fbc2eb 100%);
+      background: linear-gradient(135deg, #ffffff 40%, #fbc2eb 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .quote {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--text-sub);
       font-style: italic;
-      line-height: 1.6;
-      margin-bottom: 22px;
-      padding: 0 10px;
+      line-height: 1.55;
+      margin-bottom: 20px;
+      padding: 0 8px;
     }
 
-    /* Media Display Frame */
+    /* Media Frame for GIFs */
     .media-card {
-      border-radius: 20px;
+      border-radius: 18px;
       overflow: hidden;
       border: 1px solid var(--glass-border);
-      margin: 0 auto 20px;
-      max-width: 480px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-      transition: transform 0.4s ease;
+      margin: 0 auto 22px;
+      max-width: 440px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+      transition: transform 0.3s ease;
     }
 
     .media-card:hover {
@@ -202,57 +196,44 @@
 
     .media-card img {
       width: 100%;
-      height: auto;
-      max-height: 380px;
+      height: 250px;
       display: block;
       object-fit: cover;
     }
 
-    /* Dual Grid for Page 4 */
-    .grid-duo {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    /* Action Buttons */
+    .btn-group {
+      display: flex;
+      justify-content: center;
       gap: 12px;
-      max-width: 520px;
-      margin: 0 auto 20px;
     }
 
-    .grid-duo img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 14px;
-      border: 1px solid var(--glass-border);
-    }
-
-    /* Start Button */
-    .start-btn {
+    .action-btn {
       background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
       border: none;
       outline: none;
       color: #ffffff;
-      padding: 14px 34px;
-      font-size: 1rem;
+      padding: 12px 28px;
+      font-size: 0.95rem;
       font-weight: 600;
       border-radius: 30px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      box-shadow: 0 6px 20px rgba(255, 65, 108, 0.5);
-      transition: all 0.3s ease;
-      letter-spacing: 0.5px;
+      gap: 8px;
+      box-shadow: 0 6px 18px rgba(255, 65, 108, 0.45);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .start-btn:active {
+    .action-btn:active {
       transform: scale(0.95);
     }
 
-    /* Footer / Floating Music Control */
-    .audio-pill {
+    /* Floating Audio Mute/Unmute Toggle */
+    .sound-toggle {
       position: fixed;
-      bottom: 15px;
-      right: 15px;
+      bottom: 18px;
+      right: 18px;
       z-index: 100;
       background: var(--glass-bg);
       backdrop-filter: blur(16px);
@@ -261,36 +242,39 @@
       border-radius: 30px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       font-size: 0.8rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
     }
 
-    .mini-play-btn {
-      background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
-      border: none;
-      color: white;
-      width: 28px;
-      height: 28px;
+    .sound-dot {
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 0.75rem;
+      background: #00f2fe;
+      box-shadow: 0 0 10px #00f2fe;
+    }
+
+    footer {
+      position: relative;
+      z-index: 10;
+      margin-bottom: 15px;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.45);
     }
 
     @media (max-width: 600px) {
-      header { flex-direction: column; gap: 8px; border-radius: 20px; }
-      .grid-duo { grid-template-columns: 1fr; }
-      .grid-duo img { height: 160px; }
+      header { border-radius: 20px; }
+      .nav-btn { padding: 5px 10px; font-size: 0.75rem; }
+      .media-card img { height: 220px; }
     }
   </style>
 </head>
 <body>
 
   <div class="bg-video-container">
-    <video id="bgVideo" loop muted playsinline>
+    <video id="bgVideo" loop playsinline>
       <source src="video.mp4" type="video/mp4">
     </video>
   </div>
@@ -299,121 +283,165 @@
   <header>
     <div class="brand">ETHEREAL ✨</div>
     <nav>
-      <button class="nav-btn active" onclick="switchPage('page-1', this)">Intro</button>
-      <button class="nav-btn" onclick="switchPage('page-2', this)">Whispers</button>
-      <button class="nav-btn" onclick="switchPage('page-3', this)">Echoes</button>
-      <button class="nav-btn" onclick="switchPage('page-4', this)">Moments</button>
-      <button class="nav-btn" onclick="switchPage('page-5', this)">Infinity</button>
+      <button class="nav-btn active" onclick="switchPage(1)">1</button>
+      <button class="nav-btn" onclick="switchPage(2)">2</button>
+      <button class="nav-btn" onclick="switchPage(3)">3</button>
+      <button class="nav-btn" onclick="switchPage(4)">4</button>
+      <button class="nav-btn" onclick="switchPage(5)">5</button>
     </nav>
   </header>
 
   <main>
 
     <section id="page-1" class="page active">
-      <h1 class="title">Lost in the Lights</h1>
-      <p class="quote">“Step into the realm where melody meets motion.”</p>
+      <h1 class="title">Neon Horizon</h1>
+      <p class="quote">“Step into the realm where motion ignites the soul.”</p>
       
       <div class="media-card">
-        <img src="gif1.gif" alt="Aesthetic GIF 1">
+        <img src="gif1.gif" alt="GIF 1">
       </div>
 
-      <button class="start-btn" id="startExperienceBtn" onclick="startExperience()">
-        <span>Begin Experience</span> ✨
-      </button>
+      <div class="btn-group">
+        <button class="action-btn" id="startBtn" onclick="startExperienceAndNext()">
+          <span>Begin Experience</span> ✨
+        </button>
+      </div>
     </section>
 
     <section id="page-2" class="page">
       <h1 class="title">Celestial Whispers</h1>
-      <p class="quote">“In a sea of noise, find the rhythm that keeps your soul alive.”</p>
+      <p class="quote">“In a world full of noise, find the rhythm that feels like home.”</p>
       
       <div class="media-card">
-        <img src="gif2.gif" alt="Aesthetic GIF 2">
+        <img src="gif2.gif" alt="GIF 2">
+      </div>
+
+      <div class="btn-group">
+        <button class="action-btn" onclick="switchPage(3)">Next ➜</button>
       </div>
     </section>
 
     <section id="page-3" class="page">
-      <h1 class="title">Neon Dreamscape</h1>
-      <p class="quote">“Stars can't shine without darkness; keep glowing relentlessly.”</p>
+      <h1 class="title">Midnight Reverie</h1>
+      <p class="quote">“Stars cannot shine without darkness; illuminate relentlessly.”</p>
       
       <div class="media-card">
-        <img src="gif3.gif" alt="Aesthetic GIF 3">
+        <img src="gif3.gif" alt="GIF 3">
+      </div>
+
+      <div class="btn-group">
+        <button class="action-btn" onclick="switchPage(4)">Next ➜</button>
       </div>
     </section>
 
     <section id="page-4" class="page">
-      <h1 class="title">Parallel Realities</h1>
-      <p class="quote">“Two minds drifting across the same endless aesthetic horizon.”</p>
+      <h1 class="title">Parallel Echoes</h1>
+      <p class="quote">“Drifting effortlessly across an endless aesthetic horizon.”</p>
       
-      <div class="grid-duo">
-        <img src="gif4.gif" alt="Aesthetic GIF 4">
-        <img src="gif5.gif" alt="Aesthetic GIF 5">
+      <div class="media-card">
+        <img src="gif4.gif" alt="GIF 4">
+      </div>
+
+      <div class="btn-group">
+        <button class="action-btn" onclick="switchPage(5)">Next ➜</button>
       </div>
     </section>
 
     <section id="page-5" class="page">
-      <h1 class="title">Eternal Echo</h1>
+      <h1 class="title">Infinite Bloom</h1>
       <p class="quote">“Every ending is just another poetic beginning waiting to unfold.”</p>
       
       <div class="media-card">
-        <img src="gif1.gif" alt="Finale GIF">
+        <img src="gif5.gif" alt="GIF 5">
+      </div>
+
+      <div class="btn-group">
+        <button class="action-btn" onclick="switchPage(1)">Replay ↺</button>
       </div>
     </section>
 
   </main>
 
-  <audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mp3">
-  </audio>
-
-  <div class="audio-pill">
-    <button class="mini-play-btn" id="musicToggle" onclick="toggleMusic()">▶</button>
-    <span id="musicStatus">Audio</span>
+  <div class="sound-toggle" onclick="toggleAudio()">
+    <div class="sound-dot" id="soundDot"></div>
+    <span id="soundLabel">Mute Sound</span>
   </div>
 
+  <footer>Designed with pure aesthetic vibes • 2026</footer>
+
   <script>
-    const audio = document.getElementById('bgMusic');
     const video = document.getElementById('bgVideo');
-    const toggleBtn = document.getElementById('musicToggle');
-    const musicStatus = document.getElementById('musicStatus');
-    const startBtn = document.getElementById('startExperienceBtn');
+    const soundLabel = document.getElementById('soundLabel');
+    const soundDot = document.getElementById('soundDot');
+    let hasStarted = false;
 
-    // Start video & audio together on first button click
-    function startExperience() {
-      // 1. Play Video
-      video.play().catch(e => console.log("Video error:", e));
+    // Start video with audio on first click
+    function startExperienceAndNext() {
+      video.muted = false; // Enable audio from the video
+      video.play().then(() => {
+        hasStarted = true;
+        soundLabel.textContent = "Sound: ON";
+        soundDot.style.background = "#00f2fe";
+        soundDot.style.boxShadow = "0 0 10px #00f2fe";
+      }).catch(err => {
+        console.log("Autoplay with audio blocked, fallback to muted:", err);
+        video.muted = true;
+        video.play();
+      });
 
-      // 2. Play Audio
-      audio.play().then(() => {
-        toggleBtn.textContent = '❚❚';
-        musicStatus.textContent = 'Playing';
-        startBtn.innerHTML = "<span>Enjoying The Vibe</span> 🌸";
-      }).catch(e => console.log("Audio error:", e));
+      switchPage(2); // Automatically glide to page 2
     }
 
-    // Floating Audio Controller
-    function toggleMusic() {
-      if (audio.paused) {
-        audio.play().then(() => {
-          toggleBtn.textContent = '❚❚';
-          musicStatus.textContent = 'Playing';
-        }).catch(err => console.log(err));
+    // Toggle Audio on/off
+    function toggleAudio() {
+      if (video.paused) {
+        video.play();
+      }
+
+      video.muted = !video.muted;
+      if (video.muted) {
+        soundLabel.textContent = "Sound: MUTED";
+        soundDot.style.background = "#ff416c";
+        soundDot.style.boxShadow = "none";
       } else {
-        audio.pause();
-        toggleBtn.textContent = '▶';
-        musicStatus.textContent = 'Paused';
+        soundLabel.textContent = "Sound: ON";
+        soundDot.style.background = "#00f2fe";
+        soundDot.style.boxShadow = "0 0 10px #00f2fe";
       }
     }
 
-    // Navigation Switcher
-    function switchPage(pageId, btn) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      const target = document.getElementById(pageId);
-      if (target) target.classList.add('active');
+    // Switch Page by Number
+    function switchPage(pageNumber) {
+      // If user navigated via top tabs without pressing start, play the video
+      if (!hasStarted) {
+        video.muted = false;
+        video.play().then(() => {
+          hasStarted = true;
+          soundLabel.textContent = "Sound: ON";
+        }).catch(() => {
+          video.muted = true;
+          video.play();
+        });
+      }
 
-      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-      if (btn) btn.classList.add('active');
+      // Hide all pages
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+
+      // Show targeted page
+      const targetPage = document.getElementById(`page-${pageNumber}`);
+      if (targetPage) targetPage.classList.add('active');
+
+      // Update Nav Buttons
+      const navBtns = document.querySelectorAll('.nav-btn');
+      navBtns.forEach((b, index) => {
+        if (index + 1 === pageNumber) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
     }
   </script>
 </body>
   </html>
-  
+        
